@@ -1,0 +1,127 @@
+;; Verified public-register citations for the legal entity archived by this
+;; repository.
+;;
+;; Every row in :catalog/entries is checked live by tools/verify_citations.cljs:
+;;   * GET :cite/url must answer HTTP 2xx
+;;   * :cite/expect-substring must appear in the response body
+;;
+;; The substring is the point. A 2xx alone says the host answered SOMETHING —
+;; a login wall, a bot challenge and a data feed all return one. Each substring
+;; below is a claim ABOUT THIS ENTITY, so a citation that stops carrying it is
+;; DRIFT and fails the gate rather than passing as "reachable".
+;;
+;; Independent third-party archive. Not affiliated with, endorsed by, or
+;; sponsored by PLDT Inc.
+
+{:catalog/subject
+ {:company/legal-name   "PLDT Inc."
+  :company/lei          "254900ADE8GQHM5P2648"
+  :company/jurisdiction "PH"
+  :company/registered-as "PW00000055"
+  :company/legal-form-elf "WHGH"
+  :company/registration-authority "RA000483"
+  :company/managing-lou "5493001KJTIIGC8Y1R12"
+  :company/website      "https://pldthome.com/"}
+
+ :catalog/retrieved "2026-08-20T07:05:00Z"
+
+ ;; The floor the gate holds this catalogue to, declared beside the rows it
+ ;; guards rather than left to a flag default. A catalogue quietly emptied of
+ ;; its rows must not pass as "everything checked", and a floor far below the
+ ;; real count would have to lose most of the catalogue before it noticed.
+ :catalog/min-citations 11
+
+ ;; ── what could NOT be cited, and why ────────────────────────────────────────
+ ;;
+ ;; This is not an omission. The repository's own provenance claim points at a
+ ;; URL that no longer serves the document, and a catalogue that simply left it
+ ;; out would read as though nobody had looked.
+ :catalog/uncitable
+ [{:cite/url "https://pldthome.com/privacypolicy"
+   :cite/why :bot-challenge
+   :cite/observed {:http-status 247
+                   :served "JavaScript challenge interstitial (Reblaze), not the policy"
+                   :checked "2026-08-20T07:00:32Z"}
+   :cite/note
+   "This is the :source-url of the archive in this repository (README, and the
+    entry in 80-data/public/tos.journal.edn retrieved 2026-07-25T06:36:08Z).
+    It answers a bot-protection challenge now, so the archived text can no
+    longer be re-derived from the URL it names. The archived bytes and their
+    SHA-256 remain the record; what is gone is independent re-retrieval.
+
+    NOT worked around. Defeating a bot check to make a citation green would
+    make the gate say something the open web does not, and the point of the
+    gate is that it says only what the open web says."}]
+
+ :catalog/entries
+ [;; ── the identifier this repository is named after ──────────────────────────
+  {:cite/id "gleif-lei-record"
+   :cite/authority :gleif
+   :cite/url "https://api.gleif.org/api/v1/lei-records/254900ADE8GQHM5P2648"
+   :cite/expect-substring "PLDT Inc."
+   :cite/claim "The LEI in this repository's name resolves to PLDT Inc."}
+
+  {:cite/id "gleif-lei-record-legal-address"
+   :cite/authority :gleif
+   :cite/url "https://api.gleif.org/api/v1/lei-records/254900ADE8GQHM5P2648"
+   :cite/expect-substring "Makati City"
+   :cite/claim "Registered legal address is in Makati City, Philippines."}
+
+  {:cite/id "gleif-lei-record-status"
+   :cite/authority :gleif
+   :cite/url "https://api.gleif.org/api/v1/lei-records/254900ADE8GQHM5P2648"
+   :cite/expect-substring "\"status\":\"ACTIVE\""
+   :cite/claim "Entity status is ACTIVE — the README says so and this is where it is checked."}
+
+  ;; ── the registers behind that record ───────────────────────────────────────
+  {:cite/id "gleif-entity-legal-form-whgh"
+   :cite/authority :gleif
+   :cite/url "https://api.gleif.org/api/v1/entity-legal-forms/WHGH"
+   :cite/expect-substring "stock corporation"
+   :cite/claim "ELF code WHGH is the Philippine stock corporation."}
+
+  {:cite/id "gleif-registration-authority-ra000483"
+   :cite/authority :gleif
+   :cite/url "https://api.gleif.org/api/v1/registration-authorities/RA000483"
+   :cite/expect-substring "Securities and Exchange Commission"
+   :cite/claim "RA000483 is the Philippine SEC Companies Register, where PW00000055 is held."}
+
+  {:cite/id "gleif-managing-lou-record"
+   :cite/authority :gleif
+   :cite/url "https://api.gleif.org/api/v1/lei-records/5493001KJTIIGC8Y1R12"
+   :cite/expect-substring "Bloomberg Finance L.P."
+   :cite/claim "The LOU that maintains this LEI is Bloomberg Finance L.P."}
+
+  ;; ── the relationships, including the ones declared absent ──────────────────
+  {:cite/id "gleif-direct-children"
+   :cite/authority :gleif
+   :cite/url "https://api.gleif.org/api/v1/lei-records/254900ADE8GQHM5P2648/direct-children"
+   :cite/expect-substring "SMART COMMUNICATIONS, INC."
+   :cite/claim "Smart Communications is a declared direct child of this entity."}
+
+  {:cite/id "gleif-direct-parent-reporting-exception"
+   :cite/authority :gleif
+   :cite/url "https://api.gleif.org/api/v1/lei-records/254900ADE8GQHM5P2648/direct-parent-reporting-exception"
+   :cite/expect-substring "DIRECT_ACCOUNTING_CONSOLIDATION_PARENT"
+   :cite/claim "A reporting exception is filed for the direct parent — the absence
+                of a parent here is a filed statement, not missing data."}
+
+  {:cite/id "gleif-ultimate-parent-reporting-exception"
+   :cite/authority :gleif
+   :cite/url "https://api.gleif.org/api/v1/lei-records/254900ADE8GQHM5P2648/ultimate-parent-reporting-exception"
+   :cite/expect-substring "ULTIMATE_ACCOUNTING_CONSOLIDATION_PARENT"
+   :cite/claim "Likewise for the ultimate parent."}
+
+  {:cite/id "gleif-isins"
+   :cite/authority :gleif
+   :cite/url "https://api.gleif.org/api/v1/lei-records/254900ADE8GQHM5P2648/isins"
+   :cite/expect-substring "US69344D4088"
+   :cite/claim "Securities mapped to this LEI include the ADR ISIN US69344D4088."}
+
+  ;; ── what the entity publishes about itself ─────────────────────────────────
+  {:cite/id "pldt-home-site"
+   :cite/authority :self-published
+   :cite/url "https://pldthome.com/"
+   :cite/expect-substring "PLDT Home"
+   :cite/claim "The host named in blueprint.edn serves the entity's own site.
+                Its /privacypolicy path does not — see :catalog/uncitable."}]}
