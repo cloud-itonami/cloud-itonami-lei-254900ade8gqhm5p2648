@@ -1,0 +1,25 @@
+;; facts.edn — GLEIF LEI レコードから取り込んだ法人レベルの事実。
+;; 生成物: scripts/lei-gleif-ingest.cljs（手編集しない）。
+;; 出典 https://api.gleif.org/api/v1/lei-records/254900ADE8GQHM5P2648 を 2026-08-25 に GET（HTTP 200）。応答本文の sha256 を同梱。
+;; fact/conflict は blueprint.edn の既存値と食い違った key。どちらも消していない。
+[["gleif-254900ade8gqhm5p2648" "company/lei" "254900ADE8GQHM5P2648" 1 :add]
+ ["gleif-254900ade8gqhm5p2648" "fact/source-url" "https://api.gleif.org/api/v1/lei-records/254900ADE8GQHM5P2648" 1 :add]
+ ["gleif-254900ade8gqhm5p2648" "fact/retrieved-at" "2026-08-25" 1 :add]
+ ["gleif-254900ade8gqhm5p2648" "fact/response-sha256" "0eca418a4c19597149a44a88aff319e692d6e5e34bf660b8a74a96d247837520" 1 :add]
+ ["gleif-254900ade8gqhm5p2648" "source/dataset" "cloud-itonami-lei-gleif" 1 :add]
+ ["gleif-254900ade8gqhm5p2648" "gleif/legal-name" "PLDT Inc." 1 :add]
+ ["gleif-254900ade8gqhm5p2648" "gleif/legal-address" "Ramon Cojuangco Bldg., Makati Avenue, 1200, Makati City, PH" 1 :add]
+ ["gleif-254900ade8gqhm5p2648" "gleif/headquarters-address" "Ramon Cojuangco Bldg., Makati Avenue, 1200, Makati City, PH" 1 :add]
+ ["gleif-254900ade8gqhm5p2648" "gleif/registered-as" "PW00000055" 1 :add]
+ ["gleif-254900ade8gqhm5p2648" "gleif/registration-authority" "RA000483" 1 :add]
+ ["gleif-254900ade8gqhm5p2648" "gleif/jurisdiction" "PH" 1 :add]
+ ["gleif-254900ade8gqhm5p2648" "gleif/category" "GENERAL" 1 :add]
+ ["gleif-254900ade8gqhm5p2648" "gleif/legal-form-elf" "WHGH" 1 :add]
+ ["gleif-254900ade8gqhm5p2648" "gleif/entity-status" "ACTIVE" 1 :add]
+ ["gleif-254900ade8gqhm5p2648" "gleif/entity-creation-date" "1928-11-28T00:00:00Z" 1 :add]
+ ["gleif-254900ade8gqhm5p2648" "gleif/registration-status" "ISSUED" 1 :add]
+ ["gleif-254900ade8gqhm5p2648" "gleif/initial-registration-date" "2017-09-26T12:21:34Z" 1 :add]
+ ["gleif-254900ade8gqhm5p2648" "gleif/last-update-date" "2026-07-15T18:09:14Z" 1 :add]
+ ["gleif-254900ade8gqhm5p2648" "gleif/next-renewal-date" "2027-07-18T17:13:51Z" 1 :add]
+ ["gleif-254900ade8gqhm5p2648" "gleif/managing-lou" "5493001KJTIIGC8Y1R12" 1 :add]
+ ["gleif-254900ade8gqhm5p2648" "gleif/corroboration-level" "FULLY_CORROBORATED" 1 :add]]
