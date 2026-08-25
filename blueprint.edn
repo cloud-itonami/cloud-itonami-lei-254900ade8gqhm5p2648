@@ -1,12 +1,5 @@
-{:company/gleif-note "registry facts from GLEIF (https://api.gleif.org/api/v1/lei-records/254900ADE8GQHM5P2648), retrieved 2026-08-25 by scripts/lei-gleif-ingest.cljs (GET only)"
- :company/inquiry-form-url "https://pldthome.com/support"
- :company/jurisdiction "PH"
- :company/legal-address "Ramon Cojuangco Bldg., Makati Avenue, 1200, Makati City, PH"
- :company/legal-form-elf "WHGH"
- :company/legal-jurisdiction "PH"
- :company/legal-name "PLDT Inc."
+{:company/legal-name "PLDT Inc."
  :company/lei "254900ADE8GQHM5P2648"
- :company/lei-status "ISSUED"
- :company/postal-address "Ramon Cojuangco Bldg., Makati Avenue, 1200, Makati City, PH"
- :company/registration-number "PW00000055"
- :company/website "https://pldthome.com/"}
+ :company/jurisdiction "PH"
+ :company/website "https://pldthome.com/"
+ :company/inquiry-form-url "https://pldthome.com/support"}
